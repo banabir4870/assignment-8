@@ -18,14 +18,14 @@ const Navbar = () => {
             src={"/logo.png"}
             alt="logo"
             loading="eager"
-            width={30}
-            height={30}
+            width={40}
+            height={40}
             className="object-cover h-auto w-auto"
           />
           <h2 className={`${cinzelFont.className} text-2xl font-bold text-green-950`}>QurbaniHat</h2>
         </div>
 
-        <ul className="flex items-center gap-5 text-sm font-semibold">
+        <ul className="flex items-center gap-5 font-semibold text-gray-400">
           <li>
             <NavLink href={"/"}>Home</NavLink>
           </li>

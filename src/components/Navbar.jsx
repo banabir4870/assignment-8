@@ -12,14 +12,14 @@ const cinzelFont = Cinzel({
 const Navbar = () => {
   return (
     <div className="border-b bg-amber-200">
-      <nav className=" flex justify-between items-center  py-3 w-10/12 mx-auto">
+      <nav className=" flex justify-between items-center py-1 w-10/12 mx-auto">
         <div className="flex gap-2 items-center">
           <Image
             src={"/logo.png"}
             alt="logo"
             loading="eager"
-            width={40}
-            height={40}
+            width={60}
+            height={60}
             className="object-cover h-auto w-auto"
           />
           <h2 className={`${cinzelFont.className} text-2xl font-bold text-green-950`}>QurbaniHat</h2>

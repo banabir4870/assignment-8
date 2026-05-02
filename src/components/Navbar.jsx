@@ -1,13 +1,9 @@
 "use client";
 import { Button } from "@heroui/react";
-import { Cinzel } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./NavLink";
-
-const cinzelFont = Cinzel({
-  subsets: ['latin']
-})
+import { cinzel } from "@/app/fonts";
 
 const Navbar = () => {
   return (
@@ -22,7 +18,7 @@ const Navbar = () => {
             height={60}
             className="object-cover h-auto w-auto"
           />
-          <h2 className={`${cinzelFont.className} text-2xl font-bold text-green-950`}>QurbaniHat</h2>
+          <h2 className={`${cinzel.className} text-2xl font-bold text-green-950`}>QurbaniHat</h2>
         </div>
 
         <ul className="flex items-center gap-5 font-semibold text-gray-400">

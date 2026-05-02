@@ -1,14 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Cinzel } from "next/font/google";
 import { CiFacebook } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { PiYoutubeLogoLight } from "react-icons/pi";
+import { cinzel } from "@/app/fonts";
 
-
-const cinzelFont = Cinzel({
-    subsets: ['latin']
-})
 
 const Footer = () => {
     return (
@@ -24,7 +20,7 @@ const Footer = () => {
                             height={60}
                             className="object-cover h-auto w-auto"
                         />
-                        <h2 className={`${cinzelFont.className} text-2xl font-bold text-green-950`}>QurbaniHat</h2>
+                        <h2 className={`${cinzel.className} text-2xl font-bold text-green-950`}>QurbaniHat</h2>
                     </div>
                     <p>Premium Livestock for Your Qurbani. <br /> Needs Carefully Selected, Healthy & Farm-Raised Animals. <br /> Seamless Booking Experience. <br />Quality You Can Trust</p>
                 </div>

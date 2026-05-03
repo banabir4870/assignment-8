@@ -3,19 +3,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const AnimalCard = ({feature}) => {
+const AnimalCard = ({animal}) => {
     return (
             <Card>
                 <div className='relative'>
-                    <Image src={feature.image} alt={feature.name} width={300} height={300} className='w-full h-50 object-cover object-center rounded-2xl'></Image>
-                    <Chip className='absolute top-1 right-1' size='sm'>{feature.breed}</Chip>
+                    <Image src={animal.image} alt={animal.name} width={300} height={300} className='w-full h-50 object-cover object-center rounded-2xl'></Image>
+                    <Chip className='absolute top-1 right-1' size='sm'>{animal.breed}</Chip>
                 </div>
                 <div className='flex justify-between'>
-                    <h2>{feature.name}</h2>
-                    <p>৳ {feature.price}</p>
+                    <h2 className='font-semibold text-xl'>{animal.name}</h2>
+                    <p>৳ <span className='font-semibold text-lg'>{animal.price}</span></p>
+                </div>
+                <div className='flex justify-between'>
+                    <p className='text-gray-600'>Weight: {animal.weight}</p>
+                    <p className='text-gray-600'>Age: {animal.age}</p>
                 </div>
                 <Link href={'#'}><Button variant='outline' className={'w-full'}>View Details</Button></Link>
-                <Link href={'#'}><Button variant='secondary' className={'w-full'}>Buy Now</Button></Link>
             </Card>
     );
 };

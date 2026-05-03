@@ -18,7 +18,7 @@ const AnimalCard = ({animal}) => {
                     <p className='text-gray-600'>Weight: {animal.weight}</p>
                     <p className='text-gray-600'>Age: {animal.age}</p>
                 </div>
-                <Link href={'#'}><Button variant='outline' className={'w-full'}>View Details</Button></Link>
+                <Link href={`/all-animals/${animal.id}`}><Button variant='outline' className={'w-full'}>View Details</Button></Link>
             </Card>
     );
 };

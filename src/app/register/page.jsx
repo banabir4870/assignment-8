@@ -3,11 +3,36 @@ import { Check } from "@gravity-ui/icons";
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { cinzel } from "../fonts";
 import Link from "next/link";
-import { BsGoogle } from "react-icons/bs";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
-    const onSubmit = (e) => {
+    const router = useRouter()
+    const onSubmit = async (e) => {
         e.preventDefault();
+        const name = e.target.name.value;
+        const image = e.target.image.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        
+        const {data, error} = await authClient.signUp.email({
+            name: name,
+            image: image,
+            email: email,
+            password: password,
+            callbackURL: '/'
+        })
+
+        if(error){
+            alert(error.message)
+        }
+
+        if(data){
+            alert('Registration Successful. Please LogIn.')
+            router.push('/login')
+        }
+
+        console.log('data from db: ', {data, error})
     };
     return (
         <Card className="w-4/12 mx-auto my-10">

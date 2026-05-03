@@ -4,10 +4,29 @@ import { Button, Card, Description, FieldError, Form, Input, Label, TextField } 
 import { cinzel } from "../fonts";
 import Link from "next/link";
 import { BsGoogle } from "react-icons/bs";
+import { authClient } from "@/lib/auth-client";
 
 const LoginPage = () => {
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        const { data, error } = await authClient.signIn.email({
+            email: email,
+            password: password,
+            callbackURL: '/'
+        })
+
+        if (error) {
+            alert('Invalid Email or Password')
+        }
+
+        if (data) {
+            alert('WelCome. LogIn Successfully.')
+        }
+
+        console.log('data from db: ', { data, error })
     };
     return (
         <Card className="w-4/12 mx-auto my-10">
@@ -25,7 +44,7 @@ const LoginPage = () => {
                     }}
                 >
                     <Label>Email</Label>
-                    <Input placeholder="john@example.com" className={'border-2 border-gray-300'} />
+                    <Input name="email" placeholder="Enter Your Email Address" className={'border-2 border-gray-300'} />
                     <FieldError />
                 </TextField>
                 <TextField
@@ -47,7 +66,7 @@ const LoginPage = () => {
                     }}
                 >
                     <Label>Password</Label>
-                    <Input placeholder="Enter your password" className={'border-2 border-gray-300'} />
+                    <Input name="password" placeholder="Enter your password" className={'border-2 border-gray-300'} />
                     <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
                     <FieldError />
                 </TextField>

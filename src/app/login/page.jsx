@@ -28,6 +28,11 @@ const LoginPage = () => {
 
         console.log('data from db: ', { data, error })
     };
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    }
     return (
         <Card className="w-4/12 mx-auto my-10">
             <h1 className={`text-3xl font-semibold text-green-900 ${cinzel.className} text-center`}>Log In</h1>
@@ -83,7 +88,7 @@ const LoginPage = () => {
             <p>Don&apos;t Have Account? <span className="text-blue-500 font-medium"><Link href={'/register'}>Register</Link></span> </p>
             <p className="text-center">---------------Or---------------</p>
 
-            <Button variant="outline" className={'w-full'}><BsGoogle></BsGoogle> LogIn With Google</Button>
+            <Button onClick={handleGoogleLogin} variant="outline" className={'w-full'}><BsGoogle></BsGoogle> LogIn With Google</Button>
 
         </Card>
     );

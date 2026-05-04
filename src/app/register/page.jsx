@@ -1,10 +1,12 @@
 "use client";
-import { Check } from "@gravity-ui/icons";
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { cinzel } from "../fonts";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { BsGoogle } from "react-icons/bs";
+
 
 const RegisterPage = () => {
     const router = useRouter()
@@ -14,8 +16,8 @@ const RegisterPage = () => {
         const image = e.target.image.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        
-        const {data, error} = await authClient.signUp.email({
+
+        const { data, error } = await authClient.signUp.email({
             name: name,
             image: image,
             email: email,
@@ -23,17 +25,22 @@ const RegisterPage = () => {
             callbackURL: '/'
         })
 
-        if(error){
-            alert(error.message)
+        if (error) {
+            toast.error(error.message)
         }
 
-        if(data){
-            alert('Registration Successful. Please LogIn.')
+        if (data) {
+            toast.success('Registration Successful.')
             router.push('/login')
         }
 
-        console.log('data from db: ', {data, error})
+        console.log('data from db: ', { data, error })
     };
+    const handleGoogleLogin = async () => {
+            const data = await authClient.signIn.social({
+                provider: "google",
+            });
+        }
     return (
         <Card className="w-4/12 mx-auto my-10">
             <h1 className={`text-3xl font-semibold text-green-900 ${cinzel.className} text-center`}>Register</h1>
@@ -54,20 +61,6 @@ const RegisterPage = () => {
                 </TextField>
                 <TextField
                     isRequired
-                    name="image"
-                    validate={(value) => {
-                        if (value.length < 3) {
-                            return "Name must be at least 3 characters";
-                        }
-                        return null;
-                    }}
-                >
-                    <Label>Photo Url</Label>
-                    <Input name="image" placeholder="Enter Your Photo Url" className={'border-2 border-gray-300'} />
-                    <FieldError />
-                </TextField>
-                <TextField
-                    isRequired
                     name="email"
                     type="email"
                     validate={(value) => {
@@ -80,6 +73,17 @@ const RegisterPage = () => {
                     <Label>Email</Label>
                     <Input name="email" placeholder="Enter Your Email" className={'border-2 border-gray-300'} />
                     <FieldError />
+                </TextField>
+                <TextField
+                    isRequired
+                    name="image"
+                    type="url"
+                >
+                    <Label>Photo Url</Label>
+                    <Input name="image" placeholder="Enter Your Photo Url Link" className={'border-2 border-gray-300'} />
+                    <FieldError>
+                        Please enter a valid image URL
+                    </FieldError>
                 </TextField>
                 <TextField
                     isRequired
@@ -106,8 +110,8 @@ const RegisterPage = () => {
                 </TextField>
                 <div className="flex gap-4">
                     <Button type="submit">
-                        <Check />
-                        Submit
+
+                        Register
                     </Button>
                     <Button type="reset" variant="secondary">
                         Reset
@@ -115,6 +119,9 @@ const RegisterPage = () => {
                 </div>
             </Form>
             <p>Already Registered? <span className="text-blue-500 font-medium"><Link href={'/login'}>LogIn</Link></span> </p>
+            <p className="text-center">---------------Or---------------</p>
+
+            <Button onClick={handleGoogleLogin} variant="outline" className={'w-full'}><BsGoogle></BsGoogle> LogIn With Google</Button>
         </Card>
     );
 };

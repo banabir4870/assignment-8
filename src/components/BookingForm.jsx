@@ -2,11 +2,12 @@
 import React from 'react';
 import { Button, Card, Description, FieldError, FieldGroup, Fieldset, Form, Input, Label, TextArea, TextField } from '@heroui/react';
 import { cinzel } from '@/app/fonts';
+import { toast } from 'react-toastify';
 
 const BookingForm = () => {
     const handleBookNow = (e) => {
         e.preventDefault();
-        alert("Thank you for booking!");
+        toast.success("Booked Successfully, Thank You. Stay With Us.");
         e.target.reset();
     };
     return (
@@ -30,7 +31,7 @@ const BookingForm = () => {
                                 <Input placeholder="Enter Your Email Address" />
                                 <FieldError />
                             </TextField>
-                            <TextField isRequired name="email" type="email">
+                            <TextField isRequired name="phone" type="text">
                                 <Label>Phone Number</Label>
                                 <Input placeholder="Enter Your Phone Number" />
                                 <FieldError />

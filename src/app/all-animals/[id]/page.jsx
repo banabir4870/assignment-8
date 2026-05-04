@@ -5,6 +5,11 @@ import { Card, Chip } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 
+export const metadata = {
+  title: "Qurbani Hat | Animal Details",
+  description: "",
+};
+
 const AnimalsDetailsPage = async ({ params }) => {
     const { id } = await params;
     const res = await fetch('https://qurbanihat-a8-banabir.vercel.app/animalsData.json');

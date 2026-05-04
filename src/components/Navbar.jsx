@@ -12,25 +12,27 @@ const Navbar = () => {
   const userData = authClient.useSession()
   const user = userData.data?.user;
   console.log('user data: ', user);
-  
-  const handleLogOut = async () =>{
+
+  const handleLogOut = async () => {
     await authClient.signOut()
     router.push('/')
   }
   return (
     <div className="border-b bg-amber-200">
       <nav className=" flex justify-between items-center py-1 w-10/12 mx-auto">
-        <div className="flex gap-2 items-center">
-          <Image
-            src={"/logo.png"}
-            alt="logo"
-            loading="eager"
-            width={60}
-            height={60}
-            className="object-cover h-auto w-auto"
-          />
-          <h2 className={`${cinzel.className} text-2xl font-bold text-green-950`}>QurbaniHat</h2>
-        </div>
+        <Link href={'/'}>
+          <div className="flex gap-2 items-center">
+            <Image
+              src={"/logo.png"}
+              alt="logo"
+              loading="eager"
+              width={60}
+              height={60}
+              className="object-cover h-auto w-auto"
+            />
+            <h2 className={`${cinzel.className} text-2xl font-bold text-green-950`}>QurbaniHat</h2>
+          </div>
+        </Link>
 
         <ul className="flex items-center gap-5 font-semibold text-gray-400">
           <li>

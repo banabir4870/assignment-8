@@ -1,10 +1,11 @@
 "use client";
-import { Check } from "@gravity-ui/icons";
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { cinzel } from "../fonts";
 import Link from "next/link";
 import { BsGoogle } from "react-icons/bs";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
+
 
 const LoginPage = () => {
     const onSubmit = async (e) => {
@@ -19,11 +20,11 @@ const LoginPage = () => {
         })
 
         if (error) {
-            alert('Invalid Email or Password')
+            toast.error('Invalid Email or Password')
         }
 
         if (data) {
-            alert('WelCome. LogIn Successfully.')
+            toast.success('WelCome. LogIn Successfully.')
         }
 
         console.log('data from db: ', { data, error })
@@ -77,8 +78,7 @@ const LoginPage = () => {
                 </TextField>
                 <div className="flex gap-4">
                     <Button type="submit">
-                        <Check />
-                        Submit
+                        Log In
                     </Button>
                     <Button type="reset" variant="secondary">
                         Reset

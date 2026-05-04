@@ -1,12 +1,12 @@
 'use client'
 import UpdateUserModal from '@/components/UpdateUserModal';
-import { authClient, useSession } from '@/lib/auth-client';
+import { authClient } from '@/lib/auth-client';
 import { Avatar, Card } from '@heroui/react';
-import React from 'react';
+import { redirect } from 'next/navigation';
 
 const ProfilePage = () => {
     const userData = authClient.useSession()
-    const user = userData.data.user;
+    const user = userData.data?.user;
     return (
         <div className='my-6'>
             <Card className='max-w-96 mx-auto items-center border-2'>

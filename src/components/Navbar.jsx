@@ -6,6 +6,7 @@ import NavLink from "./NavLink";
 import { cinzel } from "@/app/fonts";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import "animate.css";
 
 const Navbar = () => {
   const router = useRouter()
@@ -49,7 +50,9 @@ const Navbar = () => {
         {
           user ?
             <div className="flex gap-4 items-center">
-              <h2 className="hidden lg:flex">Hello, {user?.name}</h2>
+              <h2 className="hidden lg:flex animate__animated animate__fadeInDown">
+                Hello, {user?.name}
+              </h2>
               <Avatar>
                 <Avatar.Image alt={user?.name} src={user?.image} />
                 <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>

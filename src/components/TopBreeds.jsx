@@ -44,7 +44,7 @@ const TopBreeds = () => {
         <div className='w-8/12 mx-auto my-6'>
             <h1 className={`text-3xl font-semibold text-green-900 ${cinzel.className} text-center mb-2`}>Top Breeds</h1>
             <p className='text-xl font font-medium text-gray-400 text-center mb-4'>Explore The Most Popular And Trusted Breeds For Qurbani</p>
-            <div className='my-4 grid grid-cols-4 gap-6'>
+            <div className='my-4 grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
                 {
                     breeds.map(breed =>
                         <Card key={breed.id}>

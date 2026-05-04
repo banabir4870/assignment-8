@@ -9,7 +9,7 @@ const Featured = async () => {
     return (
         <div className='w-10/12 mx-auto my-6'>
             <h1 className={`text-3xl font-semibold text-green-900 ${cinzel.className} text-center`}>Featured Animals</h1>
-            <div className='grid grid-cols-4 gap-6 my-6'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 my-6'>
                 {
                     featuredData.map(animal => <AnimalCard animal={animal} key={animal.id}></AnimalCard>)
                 }

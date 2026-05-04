@@ -11,7 +11,7 @@ const QurbaniTips = () => {
     return (
         <div className='w-8/12 mx-auto my-6'>
             <h1 className={`text-3xl font-semibold text-green-900 ${cinzel.className} text-center mb-6`}>Qurbani Tips</h1>
-            <div className='grid grid-cols-4 gap-6'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
                 <Card>
                     <div className='flex justify-center'><Image src={medicalLogo} alt='medical logo' width={40} height={40}></Image></div>
                     <h2 className='text-xl font-semibold'>Check Animal Health</h2>

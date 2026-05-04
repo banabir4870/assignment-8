@@ -19,7 +19,7 @@ const Navbar = () => {
   }
   return (
     <div className="border-b bg-amber-200">
-      <nav className=" flex justify-between items-center py-1 w-10/12 mx-auto">
+      <nav className=" lg:flex justify-between items-center py-1 w-10/12 mx-auto">
         <Link href={'/'}>
           <div className="flex gap-2 items-center">
             <Image
@@ -34,7 +34,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <ul className="flex items-center gap-5 font-semibold text-gray-400">
+        <ul className="hidden md:flex items-center gap-5 font-semibold text-gray-400">
           <li>
             <NavLink href={"/"}>Home</NavLink>
           </li>
@@ -49,11 +49,12 @@ const Navbar = () => {
         {
           user ?
             <div className="flex gap-4 items-center">
-              <h2>Hello, {user?.name}</h2>
+              <h2 className="hidden lg:flex">Hello, {user?.name}</h2>
               <Avatar>
                 <Avatar.Image alt={user?.name} src={user?.image} />
                 <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
               </Avatar>
+              <Link href={'/profile'}><Button variant="outline" className={'lg:hidden'}>Profile</Button></Link>
               <Button onClick={handleLogOut} variant="danger-soft">Log Out</Button>
             </div>
             :

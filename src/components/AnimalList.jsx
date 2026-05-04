@@ -22,7 +22,6 @@ const AnimalList = ({ animals }) => {
 
     return (
         <>
-            {/* 🔽 Dropdown */}
             <div className="flex justify-start mb-4">
                 <select
                     value={sortOption}
@@ -36,8 +35,7 @@ const AnimalList = ({ animals }) => {
                 </select>
             </div>
 
-            {/* 🔽 List */}
-            <div className='grid grid-cols-4 gap-6 my-6'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 my-6'>
                 {
                     sortedData.map(animal => (
                         <AnimalCard key={animal.id} animal={animal} />

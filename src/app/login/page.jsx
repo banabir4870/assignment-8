@@ -20,11 +20,15 @@ const LoginPage = () => {
         })
 
         if (error) {
-            toast.error('Invalid Email or Password')
+            toast.error('Invalid Email or Password', {
+                position: "top-center",
+            });
         }
 
         if (data) {
-            toast.success('WelCome. LogIn Successfully.')
+            toast.success('WelCome. LogIn Successfully.', {
+                position: "top-center"
+            })
         }
 
         console.log('data from db: ', { data, error })
@@ -35,7 +39,7 @@ const LoginPage = () => {
         });
     }
     return (
-        <Card className="w-4/12 mx-auto my-10">
+        <Card className="w-3/4 lg:w-4/12 mx-auto my-10">
             <h1 className={`text-3xl font-semibold text-green-900 ${cinzel.className} text-center`}>Log In</h1>
             <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
                 <TextField

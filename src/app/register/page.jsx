@@ -42,7 +42,7 @@ const RegisterPage = () => {
             });
         }
     return (
-        <Card className="w-4/12 mx-auto my-10">
+        <Card className="w-3/4 lg:w-4/12 mx-auto my-10">
             <h1 className={`text-3xl font-semibold text-green-900 ${cinzel.className} text-center`}>Register</h1>
             <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
                 <TextField

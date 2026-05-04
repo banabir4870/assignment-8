@@ -9,8 +9,8 @@ import { cinzel } from "@/app/fonts";
 const Footer = () => {
     return (
         <footer className="border-t bg-amber-200 mt-10 py-10">
-            <div className="grid grid-cols-12 gap-6 w-10/12 mx-auto">
-                <div className="col-span-6 space-y-2">
+            <div className="grid lg:grid-cols-12 gap-6 w-10/12 mx-auto">
+                <div className="lg:col-span-6 space-y-2">
                     <Link href={'/'}>
                         <div className="flex gap-2 items-center">
                             <Image
@@ -29,7 +29,7 @@ const Footer = () => {
                         and book animals like cows and goats for Qurbani. <br /> We ensure healthy
                         animals and a smooth booking experience.</p>
                 </div>
-                <div className="col-span-3 mt-4">
+                <div className="lg:col-span-3 mt-4">
                     <h3 className="text-xl font-medium text-green-800 mb-4">Contact</h3>
                     <ul className="space-y-4">
                         <li>Email: <Link href={"#"}>support@qurbanihat.com</Link></li>
@@ -38,7 +38,7 @@ const Footer = () => {
                     </ul>
 
                 </div>
-                <div className="col-span-3 mt-4">
+                <div className="lg:col-span-3 mt-4">
                     <h3 className="text-xl font-medium text-green-800 mb-4">Social Links</h3>
                     <ul className="space-y-4">
                         <li>
